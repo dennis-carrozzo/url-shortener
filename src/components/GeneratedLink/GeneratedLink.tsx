@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import generatedUrlContext from '@/context/generatedUrl/generatedUrl'
+import generatedUrlContext from '@/context/generatedUrl'
 
 /**
  * This is a React component that displays a generated URL and allows the user to copy it to the
@@ -29,7 +29,7 @@ export default function GeneratedUrl () {
       justifyContent='center'
       alignItems='center'
       sx={{
-        display: !!url ? 'block' : 'none',
+        display: url ? 'block' : 'none',
         position: 'relative',
         border: '1px solid lightblue',
         padding: 5,
@@ -37,7 +37,9 @@ export default function GeneratedUrl () {
       }}
       onClick={copyUrlToClipboard}
     >
-      <Typography variant='subtitle1'>Here's the shortened Link:</Typography>
+      <Typography variant='subtitle1'>
+        Here&apos;s the shortened Link:
+      </Typography>
       <Typography variant='subtitle2'>👉 {url}</Typography>
       {copied && (
         <Typography
